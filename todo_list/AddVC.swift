@@ -9,12 +9,15 @@
 import UIKit
 
 class AddVC: UIViewController {
-
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var detailsField: UITextField!
+    @IBOutlet weak var dueDateField: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("here")
-
+        self.hideKeyboardWhenTappedAround()
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer( target: self, action: "dismissKeyboard" )
+//        view.addGestureRecognizer( tap )
         // Do any additional setup after loading the view.
     }
 
@@ -23,7 +26,6 @@ class AddVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -34,4 +36,9 @@ class AddVC: UIViewController {
     }
     */
 
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        print( titleField.text, detailsField.text, dueDateField.date, "add" )
+    }
+    
+    
 }
