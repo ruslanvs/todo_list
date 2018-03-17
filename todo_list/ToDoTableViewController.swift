@@ -6,24 +6,14 @@
 //  Copyright © 2018 Ruslan Suvorov. All rights reserved.
 //
 
+/*
 import UIKit
-import CoreData
-
-protocol TodoCellDelegate: class {
-    
-}
 
 class ToDoTableViewController: UITableViewController {
     
-    var managedObjectContext = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
-    
-    var result = [Todo]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAllItems()
-        
-        tableView.rowHeight = 120
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,36 +24,10 @@ class ToDoTableViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return result.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoListCell", for: indexPath) as! TodoCell
-        
-        cell.titleLabel.text = result[indexPath.row].title
-        cell.detailsLabel.text = result[indexPath.row].details
-        if let d = result[indexPath.row].due_date {
-            cell.due_dateLabel.text = "\(d)"
-        }
-        
-        cell.delegate = self
-        
-        return cell
-    }
-
-    func fetchAllItems(){
-        let request = NSFetchRequest<NSFetchRequestResult>( entityName: "Todo")
-        do {
-            result = try managedObjectContext.fetch( request ) as! [Todo]
-//            for item in result {
-//                print ( item.title )
-//            }
-//            print( result )
-        } catch {
-            print( error )
-        }
-    }
+    
+    */
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -109,8 +73,6 @@ class ToDoTableViewController: UITableViewController {
     }
     */
 
-}
+//}
 
-extension ToDoTableViewController: TodoCellDelegate {
-    
-}
+

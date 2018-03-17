@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A63FC599205C9CDA009F652E /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63FC598205C9CDA009F652E /* TodoCell.swift */; };
+		A67D19B8205CA7DA00DDA2FB /* ToDoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D19B7205CA7DA00DDA2FB /* ToDoVC.swift */; };
 		A68C160C205C0C9B0067A0B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68C160B205C0C9B0067A0B0 /* AppDelegate.swift */; };
 		A68C1611205C0C9B0067A0B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A68C160F205C0C9B0067A0B0 /* Main.storyboard */; };
 		A68C1614205C0C9B0067A0B0 /* todo_list.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A68C1612205C0C9B0067A0B0 /* todo_list.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		A63FC598205C9CDA009F652E /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		A67D19B7205CA7DA00DDA2FB /* ToDoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoVC.swift; sourceTree = "<group>"; };
 		A68C1608205C0C9A0067A0B0 /* todo_list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo_list.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A68C160B205C0C9B0067A0B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A68C1610205C0C9B0067A0B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A68C163C205C0DBA0067A0B0 /* ToDoTableViewController.swift */,
 				A68C160B205C0C9B0067A0B0 /* AppDelegate.swift */,
 				A68C160F205C0C9B0067A0B0 /* Main.storyboard */,
+				A67D19B7205CA7DA00DDA2FB /* ToDoVC.swift */,
 				A63FC598205C9CDA009F652E /* TodoCell.swift */,
 				A68C1640205C80500067A0B0 /* HideKeyboardExtension.swift */,
 				A68C163E205C14390067A0B0 /* AddVC.swift */,
@@ -275,6 +278,7 @@
 				A63FC599205C9CDA009F652E /* TodoCell.swift in Sources */,
 				A68C1614205C0C9B0067A0B0 /* todo_list.xcdatamodeld in Sources */,
 				A68C1641205C80500067A0B0 /* HideKeyboardExtension.swift in Sources */,
+				A67D19B8205CA7DA00DDA2FB /* ToDoVC.swift in Sources */,
 				A68C163D205C0DBA0067A0B0 /* ToDoTableViewController.swift in Sources */,
 				A68C160C205C0C9B0067A0B0 /* AppDelegate.swift in Sources */,
 			);

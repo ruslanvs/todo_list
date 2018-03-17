@@ -17,4 +17,5 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var due_dateLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
+    
 }

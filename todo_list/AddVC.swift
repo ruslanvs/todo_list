@@ -11,9 +11,13 @@ import CoreData
 
 class AddVC: UIViewController {
     
+    weak var delegate: AddVCDelegate?
+    
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var detailsField: UITextField!
     @IBOutlet weak var dueDateField: UIDatePicker!
+    
+    
     
     var managedObjectContext = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
     
@@ -24,11 +28,9 @@ class AddVC: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        print( titleField.text, detailsField.text, dueDateField.date, "add" )
 
         let item = NSEntityDescription.insertNewObject(forEntityName: "Todo", into: managedObjectContext ) as! Todo
         item.title = titleField.text
@@ -40,6 +42,11 @@ class AddVC: UIViewController {
         } catch {
             print( error )
         }
+        
+        if let d = delegate {
+            d.refreshTable()
+        }
+        
         dismiss( animated: true, completion: nil )
     }
     
