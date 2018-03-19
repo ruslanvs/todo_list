@@ -11,7 +11,6 @@ import UIKit
 
 class TodoCell: UITableViewCell {
     
-    weak var delegate: TodoCellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var due_dateLabel: UILabel!

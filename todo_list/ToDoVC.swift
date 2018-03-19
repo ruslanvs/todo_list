@@ -9,9 +9,6 @@
 import UIKit
 import CoreData
 
-protocol TodoCellDelegate: class {
-}
-
 protocol AddVCDelegate: class {
     func refreshTable()
 }
@@ -22,6 +19,7 @@ class ToDoVC: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     var managedObjectContext = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+    var appDelegate = ( UIApplication.shared.delegate as! AppDelegate )
     
     var result = [Todo]()
 
@@ -61,6 +59,7 @@ extension ToDoVC: UITableViewDataSource {
         cell.titleLabel.text = result[indexPath.row].title
         cell.detailsLabel.text = result[indexPath.row].details
 
+        cell.due_dateLabel.text = ""
         if let d = result[indexPath.row].due_date {
             cell.due_dateLabel.text = "\(d)"
         }
@@ -70,7 +69,6 @@ extension ToDoVC: UITableViewDataSource {
             cell.accessoryType = .checkmark
         }
 
-        cell.delegate = self
         
         return cell
     }
@@ -82,12 +80,8 @@ extension ToDoVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let item = result[indexPath.row]
         managedObjectContext.delete(item)
-
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print( error )
-        }
+        appDelegate.saveContext()
+        
         result.remove( at: indexPath.row )
         tableView.reloadData()
     }
@@ -98,29 +92,33 @@ extension ToDoVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow( at: indexPath, animated: true )
+        let item = result[indexPath.row]
+        
+        item.status = !item.status
+        
+        tableView.cellForRow( at: indexPath )?.accessoryType = item.status ? .checkmark : .none
+        
+        appDelegate.saveContext()
+//        if result[indexPath.row].status == false {
+//            result[indexPath.row].status = true
+//            if let cell = tableView.cellForRow( at: indexPath ) {
+//                cell.accessoryType = .checkmark
+//            }
+//        } else {
+//            result[indexPath.row].status = false
+//            if let cell = tableView.cellForRow( at: indexPath ) {
+//                cell.accessoryType = .none
+//            }
+//        }
 
-        if result[indexPath.row].status == false {
-            result[indexPath.row].status = true
-            if let cell = tableView.cellForRow( at: indexPath ) {
-                cell.accessoryType = .checkmark
-            }
-        } else {
-            result[indexPath.row].status = false
-            if let cell = tableView.cellForRow( at: indexPath ) {
-                cell.accessoryType = .none
-            }
-        }
-
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print( error )
-        }
+//        do {
+//            try managedObjectContext.save()
+//        } catch {
+//            print( error )
+//        }
     }
 }
 
-extension ToDoVC: TodoCellDelegate {
-}
 
 extension ToDoVC: AddVCDelegate {
     func refreshTable() {
